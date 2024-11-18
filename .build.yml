@@ -1,0 +1,25 @@
+image: alpine/edge
+packages:
+  - ruby-dev
+  - nodejs
+  - build-base
+  - libffi-dev
+environment:
+  repo: stfn
+sources:
+  - git@git.sr.ht/~stfn/stfn
+  - https://git.sr.ht/~stfn/build-scripts
+secrets:
+  - a654fd57-a2eb-4fb3-86c8-44a6a18ffa89 # sourcehut
+  - 0a630b0d-08d8-47f4-8e4a-eff72043c588 # ~/.neocities/$repo
+tasks:
+  - setup: |
+      sudo apk add --no-cache build-base libffi-dev
+      sudo gem install --no-document bundler neocities
+  - build: |
+      cd $repo
+      sudo sh ../build-scripts/jekyll-build
+  - deploy: |
+      cd $repo
+      sh ../build-scripts/neocities-deploy $repo _site
+

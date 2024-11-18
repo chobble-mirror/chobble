@@ -1,0 +1,20 @@
+plugins:
+  - jekyll-minifier
+
+collections:
+  sites:
+    output: false
+  pages:
+    output: true
+    permalink: /:name/
+
+jekyll-minifier:
+  exclude: "game/*"
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/

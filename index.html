@@ -1,0 +1,21 @@
+---
+layout: default
+title: chobble.com
+---
+
+<img src="/static/chobble-logo.png" alt="Chobble" width="100%" class="logo" />
+<h1 class="{% include colour %}">an ethical web agency</h1>
+
+<div class="smaller">
+  <br />
+  <p class="{% include colour %}"><strong>sites we run:</strong></p>
+  <ul>
+    {% for item in site.data.sites %}
+    <li class="{% include colour %}">
+      <strong>{{ item.name }}</strong>
+      <a href="{{ item.href }}">visit</a>
+      {% if item.source %}/ <a href="{{ item.source }}">source</a>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>

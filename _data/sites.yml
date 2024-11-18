@@ -1,0 +1,26 @@
+- name: bluepitshousingaction.co.uk
+  href: https://bluepitshousingaction.co.uk
+  source: https://git.sr.ht/~stfn/blue-pit
+
+- name: chobble.com
+  href: https://chobble.com
+  source: https://git.sr.ht/~stfn/chobble
+
+- name: freeholdcottage.com
+  href: https://freeholdcottage.com
+  source: https://git.sr.ht/~stfn/freehold-cottage
+
+- name: newbarnltd.co.uk
+  href: https://newbarnltd.co.uk
+  source: https://git.sr.ht/~stfn/newbarn
+
+- name: stefn.co.uk
+  href: https://stefn.co.uk
+
+- name: thisandthatcafe.co.uk
+  href: https://thisandthatcafe.co.uk
+  source: https://git.sr.ht/~stfn/this-and-that
+
+- name: veganprestwich.co.uk
+  href: https://veganprestwich.co.uk
+  source: https://git.sr.ht/~stfn/vegan-prestwich
