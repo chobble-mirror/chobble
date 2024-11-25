@@ -2,26 +2,12 @@
 
 rm -rf _site
 
-nix-shell -p ruby_3_3 imagemagick pkg-config --pure --command "
-  export JEKYLL_ENV=production
-  echo 'Installing bundles'
-  bundle config set path 'vendor/cache'
-  bundle install --gemfile=Gemfile
-
+nix-shell -p jekyll --pure --command "
   echo 'Building site'
-  bundle exec jekyll build
+  jekyll build
 "
 
 nix-shell -p html-minifier --pure --command "
   echo 'Minifying site'
   html-minifier --input-dir _site --output-dir _site --collapse-whitespace --file-ext html
-"
-
-nix-shell -p neocities-cli --command "
-  echo 'Pushing to Neocities'
-
-  set +x
-  export NEOCITIES_API_KEY=$(cat ~/.neocities/chobble)
-  set -x
-  neocities push --prune _site
 "

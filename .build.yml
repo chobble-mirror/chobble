@@ -7,3 +7,4 @@ tasks:
   - build: |
       cd chobble
       sh bin/build
+      sh bin/push
