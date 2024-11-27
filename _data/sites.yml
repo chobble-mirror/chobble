@@ -4,7 +4,7 @@
 
 - name: chobble.com
   href: https://chobble.com
-  source: https://git.sr.ht/~stfn/chobble
+  source: https://git.chobble.com/chobble/chobble
 
 - name: freeholdcottage.com
   href: https://freeholdcottage.com
@@ -23,4 +23,4 @@
 
 - name: veganprestwich.co.uk
   href: https://veganprestwich.co.uk
-  source: https://git.sr.ht/~stfn/vegan-prestwich
+  source: https://git.chobble.com/chobble/vegan-prestwich
