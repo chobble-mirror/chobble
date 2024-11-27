@@ -8,7 +8,7 @@ with (import <nixpkgs> {}); let
   };
 in
   stdenv.mkDerivation {
-    name = "YourJekyllSite";
+    name = "chobble-com";
     buildInputs = [
       env
       ruby_3_3
@@ -17,10 +17,35 @@ in
     ];
 
     shellHook = ''
-      export PKG_CONFIG_PATH="${pkgs.libffi}/lib/pkgconfig:$PKG_CONFIG_PATH"
-      export LIBFFI_CFLAGS="-I${pkgs.libffi}/include"
-      export LIBFFI_LIBS="-L${pkgs.libffi}/lib -lffi"
+      serve() {
+        ${env}/bin/jekyll serve --watch &
+        JEKYLL_PID=$!
 
-      exec ${env}/bin/jekyll serve --watch
+        cleanup_serve() {
+          echo "Cleaning up serve process..."
+          kill $JEKYLL_PID 2>/dev/null
+          wait $JEKYLL_PID 2>/dev/null
+        }
+
+        trap cleanup_serve EXIT INT TERM
+
+        wait $JEKYLL_PID
+
+        cleanup_serve
+
+        trap - EXIT INT TERM
+      }
+
+      export -f serve
+
+      cleanup() {
+        echo "Cleaning up..."
+        rm -rf _site .jekyll-cache .jekyll-metadata
+      }
+
+      trap cleanup EXIT
+
+      echo "Development environment ready!"
+      echo "Run 'serve' to start development server"
     '';
   }

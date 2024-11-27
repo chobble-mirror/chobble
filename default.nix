@@ -25,10 +25,7 @@ pkgs.stdenv.mkDerivation {
     src;
 
   nativeBuildInputs = with pkgs; [
-    env
     ruby_3_3
-    rubyPackages_3_3.ffi
-    libffi
     html-minifier
   ];
 
@@ -52,7 +49,4 @@ pkgs.stdenv.mkDerivation {
     echo "Copying site files..."
     cp -r _site/* $out/
   '';
-
-  dontFixup = true;
-  dontPatch = true;
 }
