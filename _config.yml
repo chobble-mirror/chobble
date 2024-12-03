@@ -16,6 +16,5 @@ exclude:
   - node_modules/
   - vendor/
   - bin/
-  - shell.nix
-  - default.nix
+  - *.nix
   - result
