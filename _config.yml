@@ -12,5 +12,7 @@ exclude:
   - node_modules/
   - vendor/
   - bin/
-  - *.nix
+  - shell.nix
+  - default.nix
+  - gemset.nix
   - result
