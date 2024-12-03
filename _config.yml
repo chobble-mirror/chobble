@@ -4,10 +4,6 @@ collections:
   pages:
     output: true
     permalink: /:name/
-
-jekyll-minifier:
-  exclude: "game/*"
-
 exclude:
   - README.md
   - LICENSE
